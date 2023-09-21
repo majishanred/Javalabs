@@ -1,16 +1,19 @@
 package alternating_series;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Alternating_series {
-    public static int sum(int[] series) {
+    public static int sum() {
+        Scanner in = new Scanner(System.in);
+        int counter = in.nextInt();
+        int pos = 0;
         int sum = 0;
 
-        for(int i = 0; i < series.length; i++) {
-            if(i % 2 == 0) {
-                sum += series[i];
-            } else sum -= series[i];
-        };
+        for(int i = 1; i <= counter; i++) {
+            pos = pos % 2 + 1;
+
+            sum += pos % 2 == 1 ? in.nextInt() : -in.nextInt();
+        }
 
         return sum;
     }
